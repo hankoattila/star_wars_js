@@ -142,7 +142,7 @@ app.events = {
         var $modal = $("#modal");
 
         $modal.on('click', 'button.close', function () {
-            $modal.hide();
+            $modal.css('display', 'none');
         });
 
 
