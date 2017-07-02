@@ -1,3 +1,7 @@
+import sql
+from flask import session
+
+
 def delete_vote(parameters):
     query = """DELETE FROM planet_votes WHERE planet_id=%s AND planet_name=%s AND account_id=%s;"""
     fetch = ""

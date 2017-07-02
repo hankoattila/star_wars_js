@@ -122,7 +122,8 @@ app.events = {
             $.post("/vote_statistic").done(function (data) {
                 var statisticString = "<table border='1'>",
                     modal,
-                    modalContent;
+                    modalContent,
+                    dataObject;
                 dataObject = JSON.parse(data);
                 for (var i = 0; i < dataObject.length; i++) {
                     console.log(dataObject[i][0]);
@@ -140,8 +141,8 @@ app.events = {
     hideModal: function () {
         var $modal = $("#modal");
 
-        $modal.on('click', 'button.close', function(){
-            $modal.css('display','none');
+        $modal.on('click', 'button.close', function () {
+            $modal.hide();
         });
 
 

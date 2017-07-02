@@ -13,7 +13,7 @@ app = Flask(__name__)
 def vote_up():
     planet = request.form["planet"]
     planet_id = request.form["planetId"]
-    user = get_current_user()
+    user = account.get_current_user()
     time = '{:%Y-%m-%d %H:%M:%S}'.format(datetime.now())
     add_vote = request.form["addVote"]
 
@@ -33,7 +33,7 @@ def vote_up():
 def get_votes():
     if session:
         user = account.get_current_user()
-        user_id = get_user_id(user)
+        user_id = account.get_user_id(user)
         try:
             votes_of_user = account.votes(user_id)
         except:
