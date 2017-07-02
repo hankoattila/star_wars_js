@@ -1,27 +1,36 @@
+import os
 import psycopg2
-import config
+import urllib
 
 
 def query(sql, parameters, fetch):
     """Establish connection and run SQL statement."""
-    conn = None
+    connection = None
     try:
-        conn = psycopg2.connect(config.DNS)
+        urllib.parse.uses_netloc.append('postgres')
+        url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
+        connection = psycopg2.connect(
+            database=url.path[1:],
+            user=url.username,
+            password=url.password,
+            host=url.hostname,
+            port=url.port
+        )
 
     except psycopg2.OperationalError as oe:
         print("Could NOT connect to database.")
         print(oe)
 
     else:
-        conn.autocommit = True
-        with conn.cursor() as cursor:
+        connection.autocommit = True
+        with connection.cursor() as cursor:
             result = run_statement(sql, parameters, fetch, cursor)
         if result:
             return result
 
     finally:
-        if conn:
-            conn.close()
+        if connection:
+            connection.close()
 
 
 def run_statement(sql, parameters, fetch, cursor):

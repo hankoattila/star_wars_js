@@ -38,8 +38,7 @@ ALTER TABLE ONLY planet_votes
     ON UPDATE CASCADE ON DELETE NO ACTION;
 
 
-SELECT pg_catalog.setval('accounts_id_seq', 0, true);
+SELECT pg_catalog.setval('accounts_id_seq', 1, true);
 
 
-INSERT INTO planet_votes VALUES (1, 1, 1, '2017-05-23 10:25:33');
 SELECT pg_catalog.setval('planet_votes_id_seq', 1, true);
