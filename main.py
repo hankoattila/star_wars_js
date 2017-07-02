@@ -7,6 +7,7 @@ import json
 import account
 
 app = Flask(__name__)
+app.secret_key = os.urandom(12)
 
 
 @app.route("/planet/vote", methods=['POST'])
@@ -110,12 +111,3 @@ def vote_statistic():
     except:
         result = ""
     return json.dumps(result)
-
-
-def main():
-    app.secret_key = os.urandom(12)
-    app.run()
-
-
-if __name__ == '__main__':
-    main()
