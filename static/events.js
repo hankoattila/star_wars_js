@@ -37,7 +37,7 @@ app.events = {
         }
         residentString += "<tr>"
         for (var i = 0; i < residents.length; i++) {
-            listOfPromise.push($.get(residents[i]));
+            listOfPromise.push($.get(app.events.replaceHttpToHttps(residents[i])));
         }
         $.when.apply($, listOfPromise).done(function () {
             var responses = Array.prototype.slice.call(arguments, 0),
@@ -63,6 +63,10 @@ app.events = {
 
 
     },
+    replaceHttpToHttps : function(url){
+        return url.replace("http://","https://");
+    },
+
     changePage: function () {
         var nextUrl = app.dataHandler.data.next,
             previousUrl = app.dataHandler.data.previous,
@@ -72,13 +76,13 @@ app.events = {
         if (nextUrl !== null) {
             nextButton = document.getElementById("next-button");
             nextButton.addEventListener('click', function () {
-                app.dataHandler.createData(nextUrl);
+                app.dataHandler.createData(app.events.replaceHttpToHttps(nextUrl));
             })
         };
         if (previousUrl !== null) {
             previousButton = document.getElementById("previous-button");
             previousButton.addEventListener('click', function () {
-                app.dataHandler.createData(previousUrl);
+                app.dataHandler.createData(app.events.replaceHttpToHttps(previousUrl));
             })
         };
 
