@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        {% if created_account%}
+        <p>You created a new account</p>
+        {% endif %} {% if logedin %}
+        <p>Success</p>
+        {% endif %} {% if not_valid_username_or_password %}
+        <p>Invalid username or password</p>
+        {% endif%}
+        <p> Username </p>
+        <input type="text" name="username">
+        <p> Password </p>
+        <input type="password" name="password">
+        <button formaction="/login" formmethod='POST'>
+             Login
+        </button>
+    </form>
+    <a href="/">
+        <button id='login-back-btn'>
+            Back
+        </button>
+    </a>
+
+</body>
+
+</html>

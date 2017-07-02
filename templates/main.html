@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/static/ewok.jpg" type="image/gif" sizes="16x16">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="{{url_for('static', filename='dom.js')}}" defer></script>
+    <script src="{{url_for('static', filename='dataHandler.js')}}" defer></script>
+    <script src="{{url_for('static', filename='events.js')}}" defer></script>
+    <script src="{{url_for('static', filename='main.js')}}" defer></script>
+    <link rel="stylesheet" href="/static/star_wars.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>Start Wars</header>
+    <div>
+        <div id='user'>
+            {{username}}
+        </div>
+        {% if username %}
+            <a href="/logout">
+                <button>
+                    Log Out
+                </button>
+            </a> 
+                <button id='vote-statistic'>
+                    Statistic of the Vote
+                </button>
+        {% else %}
+            <a href="/login">
+                    <button>
+                        Login
+                    </button>
+            </a>
+            <a href="/register">
+                    <button>
+                        Registration
+                    </button>
+            </a> 
+            {% endif %}
+            {{ logedin }}
+
+
+    </div>
+    <div id='button-div'></div>
+    <table class='table table-bordered' border='1' id='table' style="width:60%"></table>
+    <div id="modal">
+        <button class="close">X</button>
+        <div id="modal-content">
+        <div>
+    </div>
+
+
+
+</body>
+
+</html>

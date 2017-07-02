@@ -1,0 +1,30 @@
+tr.voted button.vote{
+    background-color: green;
+}
+/*#modal-bc {
+    position: absolute;
+    top: 0;
+    height: 1000%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+    display: none;
+}*/
+table{
+    margin: 0.4cm;
+}
+button{
+    margin: 0,2cm;
+}
+div#modal{
+    display: none;
+    background-color: white;
+    padding: 0,3cm;
+    position: absolute;
+    top: 80px;
+    right: 40%;
+
+    border: 3px solid #73AD21;
+
+    
+}
