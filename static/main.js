@@ -7,4 +7,4 @@ app.init = function(url) {
     app.events.clickOnVoteStatistic();
 };
 
-app.init("http://swapi.co/api/planets/");
+app.init("https://swapi.co/api/planets/");
