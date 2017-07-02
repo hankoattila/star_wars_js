@@ -50,4 +50,7 @@ def get_usernames():
     query = """SELECT user_name FROM accounts"""
     parameter = ""
     fetch = "col"
-    return sql.query(query, parameter, fetch)
+    usernames = sql.query(query, parameter, fetch)
+    if usernames is None:
+        usernames = []
+    return usernames

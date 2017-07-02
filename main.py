@@ -77,9 +77,6 @@ def register():
         password = request.form["password"]
         password_hash = generate_password_hash(password + "4" + username, method='pbkdf2:sha512:80000', salt_length=8)
         time = '{:%Y-%m-%d %H:%M:%S}'.format(datetime.now())
-        if usernames is None:
-            account.create_new_account(username, password_hash, time)
-            return render_template("login.html", created_account=True)
 
         if username in usernames:
             return render_template("register.html", not_available=True)
