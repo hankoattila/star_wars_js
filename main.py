@@ -12,7 +12,9 @@ app.secret_key = os.urandom(12)
 
 @app.before_request
 def make_session_permanent():
-    session.permanent = True
+    if 'username' in session:
+        session.permanent = True
+        app.permanent_session_lifetime = timedelta(minutes=5)
 
 
 @app.route("/planet/vote", methods=['POST'])
