@@ -29,7 +29,10 @@ def votes(user_id):
 
 
 def get_current_user():
-    return session["username"]
+    if "username" in session:
+        return session["username"]
+    else:
+        return None
 
 
 def get_password(username):

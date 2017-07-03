@@ -121,6 +121,7 @@ app.events = {
 
     },
     clickOnVoteStatistic: function () {
+        return;
         var voteStatisticButton = document.getElementById("vote-statistic");
         voteStatisticButton.addEventListener('click', function () {
             $.post("/vote_statistic").done(function (data) {

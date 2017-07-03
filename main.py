@@ -10,6 +10,11 @@ app = Flask(__name__)
 app.secret_key = os.urandom(12)
 
 
+@app.before_request
+def make_session_permanent():
+    session.permanent = True
+
+
 @app.route("/planet/vote", methods=['POST'])
 def vote_up():
     planet = request.form["planet"]
